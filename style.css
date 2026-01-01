@@ -1,0 +1,112 @@
+/* --- 1. Variáveis e Reset (Dark Mode) --- */
+:root {
+    --cor-principal: #3498db;      /* Azul Claro (Destaque) */
+    --cor-secundaria: #ff6b6b;    /* Vermelho / Coral (Acentos) */
+    --cor-fundo: #1a1a1a;          /* Fundo Preto Quase Total */
+    --cor-texto: #f0f0f0;          /* Texto Branco Suave */
+    --cor-texto-claro: #fff;       /* Branco Puro */
+    --cor-card-fundo: #2a2a2a;     /* Fundo de Cartões */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; 
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* --- 2. Cabeçalho Principal e Contêiner de Largura --- */
+.cabecalho {
+    background-color: #0d0d0d; 
+    color: var(--cor-texto-claro);
+    /* Aumenta o padding inferior para dar espaço ao GIF */
+    padding: 20px 0 50px 0; 
+    text-align: center; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    /* Essencial para que o GIF (position: absolute) fique contido e o overflow: hidden funcione */
+    position: relative; 
+    overflow: hidden; 
+}
+
+/* Limite de Largura e Centralização do Conteúdo (Nome e Navegação) */
+.cabecalho-conteudo {
+    max-width: 1200px;
+    width: 90%; 
+    margin: 0 auto; 
+    position: relative; 
+}
+
+/* ⚠️ FLEXBOX PARA ALINHAR NOME E GIF (Se tivessem juntos) - Mantido para estrutura */
+.container-nome-e-gif {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 15px; 
+    margin-bottom: 20px; 
+}
+
+/* --- 3. Nome (Tipografia e Estrutura) --- */
+.nome-principal {
+    margin: 0; 
+    font-size: 3em; 
+    letter-spacing: 0; 
+    font-weight: 100; /* Super Leve */
+    display: flex; /* Permite a animação letra por letra */
+    justify-content: center; 
+    white-space: nowrap; 
+}
+
+/* Estado Inicial de cada letra (antes da animação de queda ser disparada pelo JS) */
+#nome-animado span {
+    display: inline-block;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+/* Classe que é adicionada pelo JavaScript para DISPARAR a animação de Queda */
+.letra-animada {
+    animation: queda 1.2s forwards; /* 1.2s para uma queda suave */
+    animation-delay: calc(0.08s * var(--i)); /* Atraso em cascata */
+}
+
+/* --- 4. Keyframes do Nome --- */
+@keyframes queda {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* --- 6. Navegação --- */
+.navegacao-principal {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap; 
+    gap: 30px; 
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+    margin: 0 20px;
+}
+
+.nav-link {
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--cor-secundaria); 
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José Manrrique | Portfólio Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <a href="URL_DO_SEU_PROJETO" target="_blank" class="nav-link">Projetos</a>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+      <header class="cabecalho">
+    <div class="cabecalho-conteudo"> 
+        
+        <div class="container-nome-e-gif"> 
+            <div id="nome-animado" class="nome-principal">Manrrique Morais</div>
+        </div>
+        <nav class="navegacao-principal">
+            <a href="#projetos" class="nav-link"> Projetos e Jogos</a>
+            <a href="#arte-3d" class="nav-link"> Arte Digital & 3D</a>
+            <a href="#certificacao" class="nav-link"> Certificações</a>
+            
+            <a href="https://www.linkedin.com/in/jos%C3%A9-manrrique-morais-torquato-809508224/" target="_blank" class="nav-link link-social"> LinkedIn</a>
+            <a href="https://playmorais.itch.io/" target="_blank" class="nav-link link-social"> Itchio</a>
+            <a href="https://www.instagram.com/manrique_morais/" target="_blank" class="nav-link link-social">Instagram</a>
+            <a href="https://github.com/Manrrike" target="_blank" class="nav-link link-social">Github</a>
+        </nav>
+        
+    </div> 
+     
+        
+          </header>
+ <script>
+    function dividirNome() {
+        const elementoNome = document.getElementById('nome-animado');
+        const textoOriginal = elementoNome.textContent.trim();
+        let novoHTML = '';
+        
+        textoOriginal.split('').forEach((caractere, indice) => {
+            if (caractere === ' ') {
+                novoHTML += '&nbsp;';
+            } else {
+                // Adicione APENAS a variável CSS (--i) e não a classe de animação ainda
+                novoHTML += `<span style="--i: ${indice};">${caractere}</span>`;
+            }
+        });
+        
+        elementoNome.innerHTML = novoHTML;
+
+        // ⚠️ NOVO: Iniciamos o efeito de queda após um pequeno atraso (ex: 500ms)
+        // Isso dá tempo para o GIF começar a se mover antes do nome cair.
+        setTimeout(() => {
+            const letras = document.querySelectorAll('#nome-animado span');
+            letras.forEach(span => {
+                span.classList.add('letra-animada'); // Adiciona a classe que dispara a animação CSS
+            });
+        }, 500); // 500 milissegundos de atraso
+    }
+    
+    // Executa a função quando a página carregar
+    dividirNome();
+</script>
+    </header>
+
+    <main class="conteudo-principal">
+    </main>
+
+    <footer>
+        <p>&copy; 2026 José Manrrique Morais Torquato. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
