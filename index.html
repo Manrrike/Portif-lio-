@@ -1,120 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>José Manrrique | Portfólio Hub</title>
-    <link rel="stylesheet" href="style.css">
-    <a href="URL_DO_SEU_PROJETO" target="_blank" class="nav-link">Projetos</a>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>José Manrrique | Portfólio Hub</title>
+ <link rel="stylesheet" href="style.css">
+ <a href="URL_DO_SEU_PROJETO" target="_blank" class="nav-link">Projetos</a>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-      <header class="cabecalho">
-    <div class="cabecalho-conteudo"> 
-        
-        <div class="container-nome"> 
-            <div id="nome-animado" class="nome-principal">Manrrique Morais</div>
-        </div>
-        <nav class="navegacao-principal">
-           <a href="#projetos" class="nav-link">
-        <img src="URL_DO_ICONE_PROJETOS_AQUI" alt="Projetos" class="nav-icon">
-        <span class="nav-text">Projetos</span>
-    </a>
-    
-    <a href="#habilidades" class="nav-link">
-        <img src="URL_DO_ICONE_HABILIDADES_AQUI" alt="Habilidades" class="nav-icon">
-        <span class="nav-text">Habilidades</span>
-    </a>
-    
-    <a href="#sobre" class="nav-link">
-        <img src="URL_DO_ICONE_SOBRE_AQUI" alt="Sobre" class="nav-icon">
-        <span class="nav-text">Sobre</span>
-    </a>
-    
-    <a href="#contato" class="nav-link">
-        <img src="URL_DO_ICONE_CONTATO_AQUI" alt="Contato" class="nav-icon">
-        <span class="nav-text">Contato</span>
-    </a>
-    <a href="#projetos" class="nav-link">
-        <img src="URL_DO_ICONE_PROJETOS_AQUI" alt="Projetos" class="nav-icon">
-        <span class="nav-text">Projetos</span>
-    </a>
-    
-    <a href="#arte-3d" class="nav-link">
-        <img src="URL_DO_ICONE_ARTE_AQUI" alt="Arte Digital & 3D" class="nav-icon">
-        <span class="nav-text">Arte & 3D</span>
-    </a>
-    
-    <a href="#certificacao" class="nav-link">
-        <img src="URL_DO_ICONE_CERTIFICACAO_AQUI" alt="Certificações" class="nav-icon">
-        <span class="nav-text">Certificações</span>
-    </a>
-    
-    <a href="https://www.linkedin.com/in/jos%C3%A9-manrrique-morais-torquato-809508224/" target="_blank" class="nav-link link-social">
-        <img src="URL_DO_ICONE_LINKEDIN_AQUI" alt="LinkedIn" class="nav-icon social-icon">
-        <span class="nav-text">LinkedIn</span>
-    </a>
-    
-    <a href="https://playmorais.itch.io/" target="_blank" class="nav-link link-social">
-        <img src="URL_DO_ICONE_ITCHIO_AQUI" alt="Itch.io" class="nav-icon social-icon">
-        <span class="nav-text">Itch.io</span>
-    </a>
-    
-    <a href="https://www.instagram.com/manrique_morais/" target="_blank" class="nav-link link-social">
-        <img src="URL_DO_ICONE_INSTAGRAM_AQUI" alt="Instagram" class="nav-icon social-icon">
-        <span class="nav-text">Instagram</span>
-    </a>
-    
-    <a href="https://github.com/Manrrike" target="_blank" class="nav-link link-social">
-        <img src="Img/icon/github.png" alt="GitHub" class="nav-icon social-icon">
-        <span class="nav-text">Github</span>
-    </a>
-        </nav>
-        
-    </div> 
+    <header class="cabecalho">
+         <div class="cabecalho-conteudo"> 
      
-        
-          </header>
- <script>
-    function dividirNome() {
-        const elementoNome = document.getElementById('nome-animado');
-        const textoOriginal = elementoNome.textContent.trim();
-        let novoHTML = '';
-        
-        textoOriginal.split('').forEach((caractere, indice) => {
-            if (caractere === ' ') {
-                novoHTML += '&nbsp;';
-            } else {
-                // Adicione APENAS a variável CSS (--i) e não a classe de animação ainda
-                novoHTML += `<span style="--i: ${indice};">${caractere}</span>`;
-            }
-        });
-        
-        elementoNome.innerHTML = novoHTML;
-
-        // ⚠️ NOVO: Iniciamos o efeito de queda após um pequeno atraso (ex: 500ms)
-        // Isso dá tempo para o GIF começar a se mover antes do nome cair.
-        setTimeout(() => {
-            const letras = document.querySelectorAll('#nome-animado span');
-            letras.forEach(span => {
-                span.classList.add('letra-animada'); // Adiciona a classe que dispara a animação CSS
-            });
-        }, 500); // 500 milissegundos de atraso
-    }
+       <div class="container-nome"> 
+        <div id="nome-animado" class="nome-principal">Manrrique Morais</div>
+        </div>
+         <button id="menu-toggle" class="menu-toggle">
+        ☰ 
+            </button>
+      
+            <nav class="navegacao-principal" id="navegacao-principal"> 
+          <a href="#projetos" class="nav-link">
+                <img src="URL_DO_ICONE_PROJETOS_AQUI" alt="Projetos" class="nav-icon">
+                <span class="nav-text">Projetos</span>
+                </a>
     
-    // Executa a função quando a página carregar
-    dividirNome();
-</script>
-    </header>
+                <a href="#habilidades" class="nav-link">
+                <img src="URL_DO_ICONE_HABILIDADES_AQUI" alt="Habilidades" class="nav-icon">
+                <span class="nav-text">Habilidades</span>
+              </a>
+            
+                 <a href="#sobre" class="nav-link">
+               <img src="URL_DO_ICONE_SOBRE_AQUI" alt="Sobre" class="nav-icon">
+              <span class="nav-text">Sobre</span>
+                </a>
+        
+                <a href="#contato" class="nav-link">
+                <img src="URL_DO_ICONE_CONTATO_AQUI" alt="Contato" class="nav-icon">
+                <span class="nav-text">Contato</span>
+                 </a>
+     
+                 <a href="#arte-3d" class="nav-link">
+                <img src="URL_DO_ICONE_ARTE_AQUI" alt="Arte Digital & 3D" class="nav-icon">
+                <span class="nav-text">Arte & 3D</span>
+                </a>
+     
+                <a href="#certificacao" class="nav-link">
+                    <img src="URL_DO_ICONE_CERTIFICACAO_AQUI" alt="Certificações" class="nav-icon">
+                    <span class="nav-text">Certificações</span>
+                </a>
+     
+                 <a href="https://www.linkedin.com/in/jos%C3%A9-manrrique-morais-torquato-809508224/" target="_blank" class="nav-link link-social">
+                    <img src="Img/icon/InBug.png" alt="LinkedIn" class="nav-icon social-icon">
+                    <span class="nav-text">LinkedIn</span>
+                </a>
+     
+                 <a href="https://playmorais.itch.io/" target="_blank" class="nav-link link-social">
+                    <img src="Img/icon/itchio.svg" alt="Itch.io" class="nav-icon social-icon">
+                    <span class="nav-text">Itch.io</span>
+                 </a>
+     
+                <a href="https://www.instagram.com/manrique_morais/" target="_blank" class="nav-link link-social">
+                    <img src="Img/icon/Instagram.png" alt="Instagram" class="nav-icon social-icon">
+                     <span class="nav-text">Instagram</span>
+                </a>
+     
+                 <a href="https://github.com/Manrrike" target="_blank" class="nav-link link-social">
+                    <img src="Img/icon/github.png" alt="GitHub" class="nav-icon social-icon">
+                    <span class="nav-text">Github</span>
+                </a>
+             </nav>
+             
+        </div> 
+     </header> 
 
     <main class="conteudo-principal">
-    </main>
+    
+                </div>
+        </section>
+        
+     </main>
 
-    <footer>
+     <footer>
         <p>&copy; 2026 José Manrrique Morais Torquato. Todos os direitos reservados.</p>
-    </footer>
-
+     </footer>
+    <script src="script.js" defer></script>
 </body>
 </html>

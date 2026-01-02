@@ -6,6 +6,7 @@
     --cor-texto: #f0f0f0;          /* Texto Branco Suave */
     --cor-texto-claro: #fff;       /* Branco Puro */
     --cor-card-fundo: #2a2a2a;     /* Fundo de Cartões */
+    --cor-borda-suave: rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -19,21 +20,19 @@ body {
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
     line-height: 1.6;
+    padding-top: 0;
 }
 
 /* --- 2. Cabeçalho Principal e Contêiner de Largura --- */
 .cabecalho {
     background-color: #0d0d0d; 
     color: var(--cor-texto-claro);
-    /* Aumenta o padding inferior para dar espaço ao GIF */
     padding: 20px 0 50px 0; 
     text-align: center; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    /* Essencial para que o GIF (position: absolute) fique contido e o overflow: hidden funcione */
     position: relative; 
     overflow: hidden; 
 }
-
 /* Limite de Largura e Centralização do Conteúdo (Nome e Navegação) */
 .cabecalho-conteudo {
     max-width: 1200px;
@@ -52,6 +51,17 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.1); 
     margin: 0 20px;
 }
+.menu-toggle {
+    display: none; /* Escondido por padrão no desktop */
+    background: none;
+    border: none;
+    color: var(--cor-principal);
+    font-size: 1.8em;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Fica acima de tudo */
+}
+
 /* ⚠️ FLEXBOX PARA ALINHAR NOME E GIF (Se tivessem juntos) - Mantido para estrutura */
 .container-nome {
     display: flex;
@@ -98,8 +108,7 @@ body {
 }
 
 
-
-
+/* --- 5. Estilos dos Links (Desktop) --- */
 .nav-link {
     color: var(--cor-texto);
     text-decoration: none;
@@ -112,48 +121,189 @@ body {
     color: var(--cor-secundaria); 
 }
 
-/* === MEDIA QUERIES PARA RESPONSIVIDADE (CELULARES) === */
 
+
+.nav-icon {
+    display: none;
+    object-fit: contain; 
+    
+    image-rendering: pixelated; 
+}
+
+
+/* --- 6. Conteúdo Principal --- */
+.conteudo-principal {
+    max-width: 1200px;
+    width: 90%;
+    margin: 30px auto;
+    padding: 0 0 50px 0;
+}
+
+.secao {
+    padding: 30px 0;
+}
+
+.titulo-secao {
+    font-size: 2em;
+    color: var(--cor-principal);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* --- 7. Seção Habilidades (Cards) --- */
+.habilidades-grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 25px;
+    justify-content: center;
+}
+
+.card-habilidade {
+    background-color: var(--cor-card-fundo); 
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid var(--cor-borda-suave);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card-habilidade:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    border-color: var(--cor-principal);
+}
+
+.icone-habilidade {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    object-fit: contain; 
+}
+
+.titulo-habilidade {
+    color: var(--cor-principal);
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+
+.card-habilidade p {
+    font-size: 0.9em;
+    color: var(--cor-texto);
+    line-height: 1.4;
+}
+
+/* --- 8. Rodapé --- */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #888;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+/* --- 9. RESPONSIVIDADE (MOBILE) --- */
 @media (max-width: 600px) {
-    /* ... (outras regras de celular que você já tem) ... */
-    
-    /* 4. Navegação - Display de Ícones e Texto Empilhados */
-.navegacao-principal {
-        /* No celular, queremos que o contêiner de navegação centralize */
-        justify-content: center;
-        gap: 10px; /* Espaço reduzido entre os itens */
+
+    /* 1. Ajuste do Cabeçalho e Título Principal (Nome) */
+    .cabecalho {
+        padding: 0; 
+        display: block; 
     }
-.nav-link {
-        flex-direction: column; 
-        
-        /* ⚠️ CHAVE 1: Alinha o conteúdo (ícone e texto) horizontalmente ao centro */
-        align-items: center; 
-        
-        /* O justify-content (alinhamento vertical) será distribuído automaticamente */
-        justify-content: center; 
-        
-        /* ... (restante dos estilos de largura e padding) ... */
-        flex-basis: calc(33.333% - 7px); 
-        /* ... (restante dos estilos) ... */
+
+    .cabecalho-conteudo {
+        width: 100%;
+        padding: 1px 1px; 
+        display: flex; 
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0; 
     }
     
-/* ⚠️ Ícone e Texto continuam visíveis, como definido antes */
+    .container-nome {
+        margin-bottom: 0; 
+    }
+    
+    .nome-principal {
+        font-size: 5.5vw;
+    }
+
+    /* ⚠️ CHAVE A: MOSTRAR E POSICIONAR O BOTÃO HAMBURGER */
+    .menu-toggle {
+        display: block; 
+        order: 2; 
+        color: var(--cor-secundaria);
+    }
+
+    /* ⚠️ CHAVE B: NAVEGAÇÃO BASE: ESCONDE E PREPARA O OVERLAY */
+    .navegacao-principal {
+        display: none; /* ESCONDE POR PADRÃO */
+        
+        /* Estilos de Overlay (posição fixa, fundo, tela cheia) */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #1a1a1afa; 
+        z-index: 999;
+        
+        /* Layout de Conteúdo */
+        justify-content: flex-start; 
+        align-items: flex-start; 
+    
+        overflow-y: auto; 
+    }
+
+    /* ⚠️ CORREÇÃO CHAVE C: EXIBE E FORÇA O LAYOUT VERTICAL */
+    .menu-aberto {
+        display: flex; /* EXIBE O MENU */
+    }
+
+    /* ⚠️ 3. Links do Menu Hamburger: Layout e Espaçamento */
+    .nav-link {
+        display: flex; /* ⬅️ Essencial para alinhar o ícone e o texto */
+        flex-direction: row; /* ⬅️ Ícone ao lado do texto */
+        justify-content: flex-start; /* Alinha o par (ícone + texto) à esquerda */
+        align-items: center;
+        
+        padding: 10px px; 
+        font-size: 1em;
+        width: 50%; /* ⬅️ Essencial para forçar cada link a ocupar uma linha */
+        
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+        transition: background-color 0.3s;
+    }
+
+    .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.05); 
+    }
+
+    /* 4. Ícones e Texto no Menu */
     .nav-icon {
-        display: inline-block; 
-        width: 28px;
-        height: 28px;
-        margin-bottom: 2px; 
-    }
-/* ⚠️ CHAVE 2: Garantir que o texto em si também esteja centralizado */
-    .nav-text {
-        display: inline-block; 
-        /* Usamos text-align no span se ele fosse maior, mas com align-items no pai já funciona. */
-        text-align: center; 
+        display: inline-block; /* Ícones visíveis no mobile */
+        width: 30px; /* Ícones pequenos */
+        height: 30px; /* Ícones pequenos */
+        margin-right: 15px; 
     }
     
-    /* Se você quiser que o ícone também mude de cor no hover */
-    .nav-link:hover .nav-icon {
-        opacity: 0.8; /* Se for imagem, pode-se usar opacidade */
-        /* Se fosse um ícone de fonte, usaríamos filter: brightness(1.5) ou mudança de cor */
+    
+    /* --- Ajuste de Responsividade para Cards --- */
+    .habilidades-grade {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+    }
+    
+    .icone-habilidade {
+        width: 30px;
+        height: 30px;
+    }
+
+    .card-habilidade {
+        padding: 10px;
     }
 }
