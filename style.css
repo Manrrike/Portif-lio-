@@ -42,8 +42,18 @@ body {
     position: relative; 
 }
 
+/* --- Navegação --- */ 
+.navegacao-principal {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap; 
+    gap: 30px; 
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+    margin: 0 20px;
+}
 /* ⚠️ FLEXBOX PARA ALINHAR NOME E GIF (Se tivessem juntos) - Mantido para estrutura */
-.container-nome-e-gif {
+.container-nome {
     display: flex;
     justify-content: center; 
     align-items: center; 
@@ -88,16 +98,7 @@ body {
 }
 
 
-/* --- 6. Navegação --- */
-.navegacao-principal {
-    display: flex;
-    justify-content: center; 
-    flex-wrap: wrap; 
-    gap: 30px; 
-    padding-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); 
-    margin: 0 20px;
-}
+
 
 .nav-link {
     color: var(--cor-texto);
@@ -109,4 +110,50 @@ body {
 
 .nav-link:hover {
     color: var(--cor-secundaria); 
+}
+
+/* === MEDIA QUERIES PARA RESPONSIVIDADE (CELULARES) === */
+
+@media (max-width: 600px) {
+    /* ... (outras regras de celular que você já tem) ... */
+    
+    /* 4. Navegação - Display de Ícones e Texto Empilhados */
+.navegacao-principal {
+        /* No celular, queremos que o contêiner de navegação centralize */
+        justify-content: center;
+        gap: 10px; /* Espaço reduzido entre os itens */
+    }
+.nav-link {
+        flex-direction: column; 
+        
+        /* ⚠️ CHAVE 1: Alinha o conteúdo (ícone e texto) horizontalmente ao centro */
+        align-items: center; 
+        
+        /* O justify-content (alinhamento vertical) será distribuído automaticamente */
+        justify-content: center; 
+        
+        /* ... (restante dos estilos de largura e padding) ... */
+        flex-basis: calc(33.333% - 7px); 
+        /* ... (restante dos estilos) ... */
+    }
+    
+/* ⚠️ Ícone e Texto continuam visíveis, como definido antes */
+    .nav-icon {
+        display: inline-block; 
+        width: 28px;
+        height: 28px;
+        margin-bottom: 2px; 
+    }
+/* ⚠️ CHAVE 2: Garantir que o texto em si também esteja centralizado */
+    .nav-text {
+        display: inline-block; 
+        /* Usamos text-align no span se ele fosse maior, mas com align-items no pai já funciona. */
+        text-align: center; 
+    }
+    
+    /* Se você quiser que o ícone também mude de cor no hover */
+    .nav-link:hover .nav-icon {
+        opacity: 0.8; /* Se for imagem, pode-se usar opacidade */
+        /* Se fosse um ícone de fonte, usaríamos filter: brightness(1.5) ou mudança de cor */
+    }
 }
