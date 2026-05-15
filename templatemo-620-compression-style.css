@@ -74,6 +74,7 @@ article.panel:last-child {
     overflow: hidden;
 }
 
+
 .panel__bg img {
     width: 100%;
     height: 100%;
@@ -178,6 +179,9 @@ article.panel:last-child {
 }
 
 .details__title {
+    display: flex;
+  align-items: flex-start; /* Alinha a imagem e o texto pelo centro vertical */
+  gap: 12px;
     font-family: var(--font-spine);
     font-size: clamp(2.2rem, 4vw, 3.8rem);
     text-transform: uppercase;
@@ -185,6 +189,12 @@ article.panel:last-child {
     line-height: 0.95;
     margin-bottom: 20px;
     letter-spacing: -0.01em;
+}
+
+.details__logo {
+  width: 25px;         /* Ajuste o tamanho da logo como preferir */
+  height: auto;        /* Mantém a proporção da imagem */
+  object-fit: contain;
 }
 
 .details__meta {
