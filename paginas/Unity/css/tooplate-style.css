@@ -1,0 +1,498 @@
+/* ============================================================================
+   Template 2110 Character — MODIFIED (Inspired by Compression Palette & Fonts)
+   ============================================================================ */
+
+/* Importando as fontes do tema Compression para usar no projeto */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+  /* Substituído por Space Mono e a cor escura de fundo do Compression */
+  font-family: 'Space Mono', monospace;
+  font-size: 18px; /* Reduzido levemente para combinar com o estilo mono */
+  background-color: #1A1A1A; 
+  color: #F0F0F0;
+  -webkit-font-smoothing: antialiased;
+  padding: 80px;
+  overflow-x: hidden;
+}
+:root {
+    --off-white: #F0F0F0;
+    --carbon: #1A1A1A;
+    --graphite: #2C2C2C;
+    --steel: #4A4A4A;
+    --ash: #6B6B6B;
+    --neon-chartreuse: #DFFF00;
+    --seam: #111111;
+    --font-spine: 'Anton', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+    --ease-heavy: cubic-bezier(0.77, 0, 0.175, 1);
+    --duration: 0.8s;
+}
+
+
+textarea {
+  font-family: 'Space Mono', monospace;
+}
+
+a {
+  /* O link agora usa o Neon Chartreuse em vez de amarelo puro */
+  color: var(--neon-chartreuse);
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+a,
+button {
+  /* Suavizado usando o efeito de transição "heavy-ease" do Compression */
+  -webkit-transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  cursor: pointer;
+}
+
+h2 {
+  font-family: 'Anton', sans-serif; /* Títulos agora usam a fonte marcante Anton */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0;
+}
+
+p {
+  line-height: 1.8;
+  margin: 0;
+  color: rgba(240, 240, 240, 0.7); /* Efeito de texto levemente opaco do Compression */
+}
+
+.tm-container {
+  max-width: 1200px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+/* http://w3bits.com/css-masonry/ */
+.masonry {
+  -webkit-column-count: 2;
+  column-count: 2;
+  -webkit-column-gap: 0;
+  column-gap: 0;
+}
+
+.item {
+  display: inline-block;
+  margin: 0;
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  /* Imagens agora ganham o filtro sofisticado preto e branco do Compression */
+  filter: brightness(0.5) grayscale(100%);
+  transition: filter 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Quando passar o mouse nas imagens do bloco, elas ganham cor */
+.item:hover img {
+  filter: brightness(0.85) grayscale(0%);
+}
+
+.tm-relative {
+  position: relative;
+}
+
+.tm-block {
+  position: relative;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 600px;
+}
+
+.tm-block-wider {
+  max-width: 640px;
+  width: calc(100% + 40px);
+}
+
+.tm-block-left {
+  right: 20px;
+  bottom: 20px;
+}
+
+.tm-block-left-2 {
+  right: 60px;
+  top: 15px;
+}
+
+.tm-block-right {
+  padding: 15px 0 20px 20px;
+}
+
+.tm-img-left {
+  display: block;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+
+.tm-block-pad {
+  padding: 67px 63px;
+}
+
+.tm-block-icon {
+  text-align: center;
+  display: block;
+  margin: 0 30px 30px;
+}
+
+.tm-block-brand {
+  position: relative;
+  margin-top: 147px;
+  margin-bottom: 27px;
+}
+.modal__text {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    line-height: 1.9;
+    color: rgba(240, 240, 240, 0.6);
+    margin-bottom: 24px;
+          padding: 0 95px 0;
+  margin-bottom:25px;
+}
+.tm-block-brand-inner {
+  position: relative;
+  right: 50px;
+  padding: 70px 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: flex-start;
+}
+.modal__label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--neon-chartreuse);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal__label::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--neon-chartreuse);
+}
+
+.tm-brand-name {
+ display: flex;
+  align-items: flex-start; /* Alinha a imagem e o texto pelo centro vertical */
+  gap: 12px;
+    font-family: var(--font-spine);
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    text-transform: uppercase;
+    color: var(--off-white);
+    line-height: 0.95;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+}
+.details__meta-item {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+}
+
+.tm-bg-dark {
+  background-color: var(--carbon);
+  border: 1px solid  var(--seam);
+}
+
+/* Substituído pelo Off-White de fundo do Compression */
+.tm-bg-white {
+  background-color: var(--off-white);
+  color: var(--carbon);
+}
+
+.tm-bg-white p {
+  color: var(--graphite);
+}
+
+.tm-bg-white h2 {
+  color: var(--carbon);
+}
+
+.tm-btn {
+  padding: 15px 25px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8rem;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.tm-btn-small {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 15px 35px;
+}
+
+.tm-btn-pad-big {
+  padding: 17px 45px;
+}
+
+/* Botão Primário adota o estilo "Clean Light" */
+.tm-btn-primary {
+  color: var(--carbon);
+  background-color: var(--off-white);
+}
+
+.tm-btn-primary:hover {
+  background-color: var(--neon-chartreuse); /* Vira neon no hover */
+  transform: translateX(4px);
+}
+
+/* Botão Secundário agora é o clássico botão Neon Chartreuse do Compression */
+.tm-btn-secondary {
+  color: var(--carbon);
+  background-color: var(--neon-chartreuse);
+}
+
+.tm-btn-secondary:hover {
+  color: var(--carbon);
+  background-color: var(--off-white);
+  transform: translateX(4px);
+}
+
+.tm-text-white {
+  color: var(--off-white);
+}
+
+/* Substituído pelo Steel Gray do Compression */
+.tm-text-gray-light {
+  color: var(--steel);
+}
+
+/* Transmutação dos blocos antigos rosa/roxo para a paleta Graphite e Steel */
+.tm-bg-primary-light {
+  background-color: var(--steel); /* Steel */
+  color: var(--off-white);
+}
+
+.tm-bg-primary-dark {
+  background-color: var(--graphite); /* Graphite */
+  color: var(--off-white);
+}
+
+.tm-bg-secondary {
+  background-color: var(--seam); /* Seam Black */
+  border: 1px solid var(--graphite);
+  color: var(--graphite);
+}
+
+.tm-mt {
+  margin-top: 30px;
+}
+
+.tm-mt-big {
+  margin-top: 50px;
+}
+
+.tm-mb {
+  margin-bottom: 45px;
+}
+
+.tm-mb-small {
+  margin-bottom: 20px;
+}
+
+.tm-text-right {
+  text-align: right;
+}
+
+.tm-text-uppercase {
+  text-transform: uppercase;
+}
+
+.tm-form-group {
+  margin-bottom: 25px;
+}
+
+/* Inputs agora seguem o estilo minimalista e dark */
+input,
+textarea {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: var(--carbon);
+  border: 1px solid var(--steel);
+  color: var(--off-white);
+  padding: 18px 20px;
+  font-size: 0.9em;
+  font-family: 'Space Mono', monospace;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--neon-chartreuse); /* Borda acende em Neon ao clicar */
+}
+
+.tm-contact-form {
+  width: calc(100% - 40px);
+}
+
+.tm-form-section {
+  margin-top: -5px;
+}
+
+.tm-form-section-tag {
+  position: relative;
+}
+
+.tm-form-section-tag h2 {
+  font-size: 1.6rem;
+}
+
+.tm-form-section-tag-inner {
+  position: relative;
+  left: 40px;
+  right: -40px;
+  bottom: -40px;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  padding: 55px 47px;
+}
+
+.tm-pb-0 {
+  padding-bottom: 0 !important;
+}
+
+.tm-img-qr {
+  width: 150px;
+  height: 150px;
+  margin: 30px 20px 30px 0;
+  filter: invert(1) brightness(0.9); /* Inverte o QR Code para destacar no fundo escuro */
+}
+
+.tm-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  max-width: 600px;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+/* Cores do rodapé sincronizadas com o sutil Ash Gray */
+.tm-footer,
+.tm-footer a {
+  color: var(--ash);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+}
+
+.tm-footer a:hover {
+  color: var();
+}
+
+.tm-footer p {
+  font-size: 14px;
+}
+
+/* ============================================================================
+   RESPONSIVE MEDIA QUERIES (Mantido o comportamento original do layout)
+   ============================================================================ */
+@media (max-width: 1232px) {
+  body {
+    padding: 60px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .masonry {
+    -webkit-column-count: 1;
+    column-count: 1;
+  }
+
+  .tm-container {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 540px) {
+  .tm-block-brand-inner {
+    flex-direction: column;
+    padding: 35px;
+    right: 30px;
+  }
+
+  .tm-brand-name {
+    margin-top: 20px;
+  }
+
+  .tm-contact-form {
+    width: calc(100% - 20px);
+  }
+}
+
+@media (max-width: 520px) {
+  body {
+    padding: 50px;
+  }
+
+  .tm-block-pad {
+    padding: 45px;
+  }
+
+  .tm-hero-text {
+    padding: 50px 45px 0;
+  }
+
+  .tm-block-brand {
+    margin-top: 70px;
+  }
+}
+
+@media (max-width: 417px) {
+  .tm-block-left,
+  .tm-block-left-2 {
+    right: 0;
+  }
+
+  .tm-block-wider {
+    width: 100%;
+  }
+
+  .tm-footer {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 390px) {
+  body {
+    padding: 40px 20px 10px;
+  }
+
+  .tm-form-section-tag-inner {
+    left: 25px;
+    right: -25px;
+    bottom: -25px;
+  }
+}
