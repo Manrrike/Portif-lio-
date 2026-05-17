@@ -91,16 +91,8 @@ p {
 img {
   max-width: 100%;
   height: auto;
-  /* Imagens agora ganham o filtro sofisticado preto e branco do Compression */
-  filter: brightness(0.5) grayscale(100%);
   transition: filter 0.5s cubic-bezier(0.77, 0, 0.175, 1);
 }
-
-/* Quando passar o mouse nas imagens do bloco, elas ganham cor */
-.item:hover img {
-  filter: brightness(0.85) grayscale(0%);
-}
-
 .tm-relative {
   position: relative;
 }
@@ -136,7 +128,13 @@ img {
   margin-right: 0;
   margin-left: auto;
 }
-
+.details__description {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.7;
+    max-width: 420px;
+    margin-bottom: 32px;
+}
 
 .tm-block-pad {
   padding: 67px 63px;
@@ -152,15 +150,6 @@ img {
   position: relative;
   margin-top: 147px;
   margin-bottom: 27px;
-}
-.modal__text {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    line-height: 1.9;
-    color: rgba(240, 240, 240, 0.6);
-    margin-bottom: 24px;
-          padding: 0 95px 0;
-  margin-bottom:25px;
 }
 .tm-block-brand-inner {
   position: relative;
@@ -385,7 +374,6 @@ textarea:focus {
   width: 150px;
   height: 150px;
   margin: 30px 20px 30px 0;
-  filter: invert(1) brightness(0.9); /* Inverte o QR Code para destacar no fundo escuro */
 }
 
 .tm-footer {
@@ -403,7 +391,7 @@ textarea:focus {
 /* Cores do rodapé sincronizadas com o sutil Ash Gray */
 .tm-footer,
 .tm-footer a {
-  color: var(--ash);
+  color: var(--neon-chartreuse);
   font-family: 'Space Mono', monospace;
   font-size: 0.75rem;
 }
